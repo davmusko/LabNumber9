@@ -10,18 +10,12 @@ public class CarApp {
 		int year;
 		double price;
 		ArrayList<Car> arrList = new ArrayList<Car>();
-		System.out.print("How many cars are you entering: ");
-		numOfCar=scan.nextInt();
+		numOfCar=Validator.getInt(scan, "How many cars would you like to enter?: ", 1);
 		for(int i = 0; i < numOfCar; i++) {
-			scan.nextLine();
-			System.out.print("Car #"+(i+1)+" make: ");
-			make = scan.nextLine();
-			System.out.print("Car #"+(i+1)+" model: ");
-			model = scan.nextLine();
-			System.out.print("Car #"+(i+1)+" year: ");
-			year = scan.nextInt();
-			System.out.print("Car #"+(i+1)+" price: ");
-			price = scan.nextDouble();
+			make = Validator.getString(scan, "Car #"+(i+1)+" make: ");
+			model = Validator.getString(scan, "Car #"+(i+1)+" model: ");
+			year = Validator.getInt(scan, "Car #"+(i+1)+" year: ",1884);
+			price = Validator.getDouble(scan, "Car #"+(i+1)+" price: ", 0);
 			Car car1 = new Car(make, model,year,price);
 			arrList.add(car1);
 		}
